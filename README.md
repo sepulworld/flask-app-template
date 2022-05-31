@@ -6,40 +6,80 @@ Flask app template with User auth and local development prepped up
 
 * python3
 * poetry 
-* pygit2 (after libssh2, libgit2 installed)
+* Tilt
 
-## Install Python Poetry
+
+## Install Python Poetry and Tilt
 ```
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 ```
 
-## Setup (Needs specific git libs) and enter Poetry shell
+## Setup new app and start local development
 ```
-xcode-select --install
-brew install libssh2 libgit2
+git clone https://github.com/sepulworld/flask-app-template.git
+cd flask-app-template
 poetry install
 poetry shell
+cd ..
+# Replace myapp with the name of your app
+battenberg -O myapp install --initial-branch main git@github.com:sepulworld/flask-app-template.git 
+cd myapp
+tilt up
 ```
 
 #### Create Python Flask app via Battenberg
 
-```
-# replace "myapp" with your app name
-battenberg -O myapp install --initial-branch master git@github.com:sepulworld/flask-app-template.git 
-app [app]: myapp 
-```
 
 Will generate git repo and init
 ```
-myapp/
-├── .cookiecutter.json
-├── .github
-│   └── workflow
-  │   └── lint.yml
-├── .gitignore
-├── .git
+./myapp/
+├── CHANGELOG.md
+├── DEVELOPMENT.md
+├── Dockerfile
+├── LICENSE
 ├── README.md
-└── app 
+├── Tiltfile
+├── app
+│   ├── __init__.py
+│   ├── api
+│   │   ├── __init__.py
+│   │   ├── auth.py
+│   │   ├── errors.py
+│   │   ├── tokens.py
+│   │   └── users.py
+│   ├── auth
+│   │   ├── __init__.py
+│   │   ├── email.py
+│   │   ├── forms.py
+│   │   └── routes.py
+│   ├── email.py
+│   ├── errors
+│   │   ├── __init__.py
+│   │   └── handlers.py
+│   ├── main
+│   │   ├── __init__.py
+│   │   ├── forms.py
+│   │   └── routes.py
+│   ├── models.py
+│   └── templates
+│       ├── auth
+│       │   ├── login.html
+│       │   ├── register.html
+│       │   ├── reset_password.html
+│       │   └── reset_password_request.html
+│       ├── base.html
+│       ├── errors
+│       │   ├── 404.html
+│       │   └── 500.html
+│       ├── index.html
+│       └── user.html
+├── boot.sh
+├── config.py
+├── local_dev
+│   └── local.yaml
+├── myapp.py
+└── pyproject.toml
 ```
 
 #### Create Github Repo 
@@ -48,7 +88,7 @@ Create a Github public or private repo your new project
 
 #### Push initial commit to trigger cluster setup
 ```
-# example init and push, please replace CLUSTER_NAME_HERE with eks cluster name
+# example init and push, please replace myapp with your app name 
 cd myapp 
 git remote add origin git@github.com:<user>/myapp.git
 git push -u origin main
