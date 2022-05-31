@@ -1,7 +1,8 @@
 {% raw %}
 {% extends 'bootstrap/base.html' %}
 {% block title %}
-    {% if title %}{{ title }} - {% endraw %} {{ cookiecutter.app }} {% raw %}{% else %}{{ _('Welcome {% endraw %} to {{ cookiecutter.app }}{% raw %}') }}{% endif %}
+    {% if title %}{{ title }} - {% endraw %} {{ cookiecutter.app }} {% raw %}{% else %}{{ _('Welcome {% endraw %} to {{ cookiecutter.app }}{% raw %}') }}{% endif %}{% endraw %}
+{% raw %}
 {% endblock %}
 
 {% block navbar %}
