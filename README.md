@@ -13,13 +13,12 @@ Flask app template with User auth and local development prepped up
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 ```
 
-## Setup (Needs specific git libs)
+## Setup (Needs specific git libs) and enter Poetry shell
 ```
-pip uninstall pygit2
 xcode-select --install
 brew install libssh2 libgit2
-pip install pygit2 --no-binary pygit2
 poetry install
+poetry shell
 ```
 
 #### Create Python Flask app via Battenberg
