@@ -2,6 +2,9 @@
 
 Flask app template with User auth and local development prepped up
 
+![flask-app-template](https://user-images.githubusercontent.com/538171/171298456-c4a3d07e-f27e-4655-804d-801780c392a5.gif)
+
+
 ## Requirements for local usage
 
 * python3
