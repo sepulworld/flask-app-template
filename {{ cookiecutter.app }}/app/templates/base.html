@@ -1,7 +1,7 @@
 {% extends 'bootstrap/base.html' %}
-
+{% raw %}
 {% block title %}
-    {% if title %}{{ title }} - {{ cookiecutter.app }}{% else %}{{ _('Welcome to {{ cookiecutter.app }}') }}{% endif %}
+    {% if title %}{{ title }} - {% endraw %} {{ cookiecutter.app }} {% raw %}{% else %}{{ _('Welcome {% endraw %} to {{ cookiecutter.app }}{% raw %}') }}{% endif %}
 {% endblock %}
 
 {% block navbar %}
@@ -14,12 +14,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+{% endraw %}
                 <a class="navbar-brand" href="{{ url_for('main.index') }}">{{ cookiecutter.app }}</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url_for('main.index') }}">{{ _('{{ cookiecutter.app }}') }}</a></li>
                 </ul>
+{% raw %}
                 <ul class="nav navbar-nav navbar-right">
                     {% if current_user.is_anonymous %}
                     <li><a href="{{ url_for('auth.login') }}">{{ _('Login') }}</a></li>
@@ -32,3 +34,4 @@
         </div>
     </nav>
 {% endblock %}
+{% endraw % }
