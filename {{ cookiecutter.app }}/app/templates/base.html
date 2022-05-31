@@ -15,12 +15,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-{% endraw %}
-                <a class="navbar-brand" href="{{ url_for('main.index') }}">{{ cookiecutter.app }}</a>
+                <a class="navbar-brand" href="{{ url_for('main.index') }}">{% endraw %}{{ cookiecutter.app }}{% raw %}</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('main.index') }}">{{ _('{{ cookiecutter.app }}') }}</a></li>
+                    <li><a href="{{ url_for('main.index') }}">{{ _('{% endraw %}{{ cookiecutter.app }}{% raw %}') }}</a></li>
                 </ul>
 {% raw %}
                 <ul class="nav navbar-nav navbar-right">
