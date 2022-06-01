@@ -18,16 +18,15 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 ```
 
-## Setup new app and start local development
+## Setup new app and start local development (helloworld example app)
 ```
 git clone https://github.com/sepulworld/flask-app-template.git
 cd flask-app-template
 poetry install
 poetry shell
 cd ..
-# Replace myapp with the name of your app
-battenberg -O myapp install --initial-branch main git@github.com:sepulworld/flask-app-template.git 
-cd myapp
+battenberg -O helloworld install --initial-branch main git@github.com:sepulworld/flask-app-template.git 
+cd helloworld 
 tilt up
 ```
 
@@ -36,7 +35,7 @@ tilt up
 
 Will generate git repo and init
 ```
-./myapp/
+./helloworld/
 ├── CHANGELOG.md
 ├── DEVELOPMENT.md
 ├── Dockerfile
@@ -81,28 +80,15 @@ Will generate git repo and init
 ├── config.py
 ├── local_dev
 │   └── local.yaml
-├── myapp.py
+├── helloworld.py
 └── pyproject.toml
 ```
 
-#### Create Github Repo 
-
-Create a Github public or private repo your new project 
-
-#### Push initial commit to trigger cluster setup
-```
-# example init and push, please replace myapp with your app name 
-cd myapp 
-git remote add origin git@github.com:<user>/myapp.git
-git push -u origin main
-```
-
-#### Battenbug Upgrades to your app
+#### Battenbug Upgrades Process 
 
 If you want to sync new changes from flask-app-template to your app
  
 ```
-cd myapp 
 git branch template main 
 git checkout -b template_sync
 battenberg upgrade
@@ -111,5 +97,3 @@ battenberg upgrade
 #### What is Battenberg?
 
 https://github.com/zillow/battenberg#battenberg
-
-

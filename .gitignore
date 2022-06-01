@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # Myapp test
-myapp
+helloworld
