@@ -5,12 +5,13 @@ Flask app template with User auth and local development prepped up
 ![flask-app-template](https://user-images.githubusercontent.com/538171/171298456-c4a3d07e-f27e-4655-804d-801780c392a5.gif)
 
 
-## Requirements for local usage
+## Requirements
 
-* python3
-* poetry 
-* Tilt
-
+* [python3](https://www.python.org/downloads/)
+* [Poetry](https://python-poetry.org)
+* [Tilt](https://tilt.dev)
+* [Docker](https://docker.com)
+* [Kubernetes](https://kubernetes.io) - (Minikube, Docker for Mac K8s enabled, Kind, etc)
 
 ## Install Python Poetry and Tilt
 ```
@@ -30,10 +31,10 @@ cd helloworld
 tilt up
 ```
 
-#### Create Python Flask app via Battenberg
+## Create Python Flask app via Battenberg
 
+Will generate application git repo with initial scaffolding and user signup, login interface points
 
-Will generate git repo and init
 ```
 ./helloworld/
 ├── CHANGELOG.md
@@ -82,6 +83,12 @@ Will generate git repo and init
 │   └── local.yaml
 ├── helloworld.py
 └── pyproject.toml
+```
+
+### Tilt Local Development
+
+```
+tilt up
 ```
 
 #### Battenbug Upgrades Process 
